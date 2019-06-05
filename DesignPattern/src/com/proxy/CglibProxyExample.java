@@ -9,37 +9,37 @@ import java.lang.reflect.Method;
 
 public class CglibProxyExample implements MethodInterceptor {
 	/**
-	 * Éú³ÉCGLIB´úÀí¶ÔÏó
-	 * 
-	 * @param cls-- ClassÀà
-	 * @return ClassÀàµÄCGLIB´úÀí¶ÔÏó
+	 * ç”ŸæˆCGLIBä»£ç†å¯¹è±¡
+	 *
+	 * @param cls-- Classç±»
+	 * @return Classç±»çš„CGLIBä»£ç†å¯¹è±¡
 	 */
 	public Object getProxy(Class cls) {
-		// CGLIB enhancerÔöÇ¿Àà¶ÔÏó
+		// CGLIB enhancerå¢å¼ºç±»å¯¹è±¡
 		Enhancer enhancer = new Enhancer();
-		// ÉèÖÃÔöÇ¿ÀàĞÍ
+		// è®¾ç½®å¢å¼ºç±»å‹
 		enhancer.setSuperclass(cls);
-		// ¶¨Òå´úÀíÂß¼­¶ÔÏóÎªµ±Ç°¶ÔÏó£¬ÒªÇóµ±Ç°¶ÔÏóÊµÏÖMethodInterceptor·½·¨
+		// å®šä¹‰ä»£ç†é€»è¾‘å¯¹è±¡ä¸ºå½“å‰å¯¹è±¡ï¼Œè¦æ±‚å½“å‰å¯¹è±¡å®ç°MethodInterceptoræ–¹æ³•
 		enhancer.setCallback(this);
-		// Éú³É²¢·µ»Ø´úÀí¶ÔÏó
+		// ç”Ÿæˆå¹¶è¿”å›ä»£ç†å¯¹è±¡
 		return enhancer.create();
 	}
 	/**
-	 * ´úÀíÂß¼­·½·¨
-	 * 
-	 * @param proxy ´úÀí¶ÔÏó
-	 * @param method ·½·¨
-	 * @param args  ·½·¨²ÎÊı
-	 * @param methodProxy ·½·¨´úÀí
-	 * @return ´úÀíÂß¼­·µ»Ø
-	 * @throws Throwable Òì³£
+	 * ä»£ç†é€»è¾‘æ–¹æ³•
+	 *
+	 * @param proxy ä»£ç†å¯¹è±¡
+	 * @param method æ–¹æ³•
+	 * @param args  æ–¹æ³•å‚æ•°
+	 * @param methodProxy æ–¹æ³•ä»£ç†
+	 * @return ä»£ç†é€»è¾‘è¿”å›
+	 * @throws Throwable å¼‚å¸¸
 	 */
 	@Override
 	public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-		System.err.println("µ÷ÓÃÕæÊµ¶ÔÏóÇ°");
-		// CGLIB·´Éäµ÷ÓÃÕæÊµ¶ÔÏó·½·¨
+		System.err.println("è°ƒç”¨çœŸå®å¯¹è±¡å‰");
+		// CGLIBåå°„è°ƒç”¨çœŸå®å¯¹è±¡æ–¹æ³•
 		Object result = methodProxy.invokeSuper(proxy, args);
-		System.err.println("µ÷ÓÃÕæÊµ¶ÔÏóºó");
+		System.err.println("è°ƒç”¨çœŸå®å¯¹è±¡å");
 		return result;
 	}
 }

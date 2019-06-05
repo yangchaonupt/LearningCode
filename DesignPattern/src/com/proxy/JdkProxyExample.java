@@ -6,34 +6,34 @@ import java.lang.reflect.Proxy;
 
 public class JdkProxyExample implements InvocationHandler {
 
-    // 真实对象
+    // 鐪熷疄瀵硅薄
     private Object target = null;
     /**
-     * 建立代理对象和真实对象的代理关系，并返回代理对象
+     * 寤虹珛浠ｇ悊瀵硅薄鍜岀湡瀹炲璞＄殑浠ｇ悊鍏崇郴锛屽苟杩斿洖浠ｇ悊瀵硅薄
      *
-     * @param target 真实对象
-     * @return 代理对象
+     * @param target 鐪熷疄瀵硅薄
+     * @return 浠ｇ悊瀵硅薄
      */
     public Object bind(Object target) {
         this.target = target;
         return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
     }
     /**
-     * 代理方法逻辑
+     * 浠ｇ悊鏂规硶閫昏緫
      *
-     * @param proxy--代理对象
-     * @param method-当前调度方法
-     * @param args--当前方法参数
-     * @return 代理结果返回
-     * @throws Throwable 异常
+     * @param proxy--浠ｇ悊瀵硅薄
+     * @param method-褰撳墠璋冨害鏂规硶
+     * @param args--褰撳墠鏂规硶鍙傛暟
+     * @return 浠ｇ悊缁撴灉杩斿洖
+     * @throws Throwable 寮傚父
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("进入代理逻辑方法");
-        System.out.println("在调度真实对象之前的服务");
-        // 相当于调用sayHelloWorld方法
+        System.out.println("杩涘叆浠ｇ悊閫昏緫鏂规硶");
+        System.out.println("鍦ㄨ皟搴︾湡瀹炲璞′箣鍓嶇殑鏈嶅姟");
+        // 鐩稿綋浜庤皟鐢╯ayHelloWorld鏂规硶
         Object obj = method.invoke(target, args);
-        System.out.println("在调度真实对象之后的服务");
+        System.out.println("鍦ㄨ皟搴︾湡瀹炲璞′箣鍚庣殑鏈嶅姟");
         return obj;
     }
 }

@@ -1,6 +1,5 @@
 package com.proxy;
 
-import com.lean.ssm.chapter2.reflect.ReflectServiceImpl;
 
 public class ProxyTest {
 
@@ -23,9 +22,9 @@ public class ProxyTest {
 	public static void testJdkProxy() {
 		System.out.println("testJdkProxy====================");
 		JdkProxyExample jdk = new JdkProxyExample();
-		// °ó¶¨¹ØÏµ£¬ÒòÎª¹ÒÔÚ½Ó¿ÚHelloWorldÏÂ£¬ËùÒÔÉùÃ÷´úÀí¶ÔÏóHelloWorld proxy
+		// ç»‘å®šå…³ç³»ï¼Œå› ä¸ºæŒ‚åœ¨æ¥å£HelloWorldä¸‹ï¼Œæ‰€ä»¥å£°æ˜ä»£ç†å¯¹è±¡HelloWorld proxy
 		HelloWorld proxy = (HelloWorld) jdk.bind(new HelloWorldImpl());
-		// ×¢Òâ£¬´ËÊ±HelloWorld¶ÔÏóÒÑ¾­ÊÇÒ»¸ö´úÀí¶ÔÏó£¬Ëü»á½øÈë´úÀíµÄÂß¼­·½·¨invokeÀï
+		// æ³¨æ„ï¼Œæ­¤æ—¶HelloWorldå¯¹è±¡å·²ç»æ˜¯ä¸€ä¸ªä»£ç†å¯¹è±¡ï¼Œå®ƒä¼šè¿›å…¥ä»£ç†çš„é€»è¾‘æ–¹æ³•invokeé‡Œ
 		proxy.sayHelloWorld();
 	}
 	
@@ -33,7 +32,7 @@ public class ProxyTest {
 		System.out.println("testCGLIBProxy====================");
 		CglibProxyExample cpe = new CglibProxyExample();
 	    ReflectServiceImpl obj = (ReflectServiceImpl)cpe.getProxy(ReflectServiceImpl.class);
-	    obj.sayHello("Ñî³¬");
+	    obj.sayHello("æ¨è¶…î³¬");
 	}
 
 }

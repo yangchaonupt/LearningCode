@@ -10,10 +10,10 @@ public class DirectProxyExample implements HelloWorld {
 
     @Override
     public void sayHelloWorld() {
-        System.out.println("进入代理逻辑方法");
-        System.out.println("打招呼之前的服务");
-        // 相当于调用sayHelloWorld方法
+        System.out.println("杩涘叆浠ｇ悊閫昏緫鏂规硶");
+        System.out.println("鎵撴嫑鍛间箣鍓嶇殑鏈嶅姟");
+        // 鐩稿綋浜庤皟鐢╯ayHelloWorld鏂规硶
         helloWorld.sayHelloWorld();
-        System.out.println("打招呼之后的服务");
+        System.out.println("鎵撴嫑鍛间箣鍚庣殑鏈嶅姟");
     }
 }
