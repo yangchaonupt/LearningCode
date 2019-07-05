@@ -1,4 +1,4 @@
-package com.base;
+package base;
 
 /**
  * 测试在函数中修改参数之后的返回值

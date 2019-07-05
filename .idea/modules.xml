@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BasicKnowledge/BasicKnowledge.iml" filepath="$PROJECT_DIR$/BasicKnowledge/BasicKnowledge.iml" />
       <module fileurl="file://$PROJECT_DIR$/DesignPattern/DesignPattern.iml" filepath="$PROJECT_DIR$/DesignPattern/DesignPattern.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/LearningCode.iml" filepath="$PROJECT_DIR$/.idea/LearningCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebDemo/WebDemo.iml" filepath="$PROJECT_DIR$/WebDemo/WebDemo.iml" />
     </modules>
   </component>
 </project>
