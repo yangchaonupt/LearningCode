@@ -3,6 +3,7 @@ package base;
 public class Student {
     private int age;
     private String name;
+    private Adress adress;
 
     public Student() {
     }
@@ -26,5 +27,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Adress getAdress() {
+        return adress;
+    }
+
+    public void setAdress(Adress adress) {
+        this.adress = adress;
     }
 }
